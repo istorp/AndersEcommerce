@@ -2,6 +2,7 @@ global using AndersEcommerce.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using AndersEcommerce.Server.Data;
 using Microsoft.AspNetCore.ResponseCompression;
+using AndersEcommerce.Server.Services.ProductServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
